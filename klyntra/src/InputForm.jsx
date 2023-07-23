@@ -1,6 +1,8 @@
-import { useState } from 'react';
+// InputForm.jsx
+import React, { useState } from 'react';
 
 const InputForm = ({ onSubmit }) => {
+  const [inputText, setInputText] = useState('');
   const [canvasData, setCanvasData] = useState({
     problem: '',
     solution: '',
@@ -9,9 +11,19 @@ const InputForm = ({ onSubmit }) => {
     unfairAdvantage: '',
     channels: '',
     customerSegments: '',
+    existingAlternatives: '',
+    highLevelConcepts: '',
+    earlyAdopters: '',
     costStructure: '',
     revenueStreams: '',
   });
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && e.shiftKey) {
+      setInputText((prevText) => prevText + '\n');
+      e.preventDefault();
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,6 +36,7 @@ const InputForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(canvasData);
+    setInputText('');
   };
 
   return (
@@ -32,12 +45,13 @@ const InputForm = ({ onSubmit }) => {
         <label className='block text-lg font-bold mb-2' htmlFor='problem'>
           Problem
         </label>
-        <input
-          type='text'
+        <textarea
+          //   type='textarea'
           id='problem'
           name='problem'
           value={canvasData.problem}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'
         />
       </div>
@@ -45,7 +59,7 @@ const InputForm = ({ onSubmit }) => {
         <label className='block text-lg font-bold mb-2' htmlFor='solution'>
           Solution
         </label>
-        <input
+        <textarea
           type='text'
           id='solution'
           name='solution'
@@ -58,7 +72,7 @@ const InputForm = ({ onSubmit }) => {
         <label className='block text-lg font-bold mb-2' htmlFor='keyMetrics'>
           Key Metrics
         </label>
-        <input
+        <textarea
           type='text'
           id='keyMetrics'
           name='keyMetrics'
@@ -74,7 +88,7 @@ const InputForm = ({ onSubmit }) => {
         >
           Unique Value Proposition
         </label>
-        <input
+        <textarea
           type='text'
           id='uniqueValueProposition'
           name='uniqueValueProposition'
@@ -90,7 +104,7 @@ const InputForm = ({ onSubmit }) => {
         >
           Unfair Advantage
         </label>
-        <input
+        <textarea
           type='text'
           id='unfairAdvantage'
           name='unfairAdvantage'
@@ -103,7 +117,7 @@ const InputForm = ({ onSubmit }) => {
         <label className='block text-lg font-bold mb-2' htmlFor='channels'>
           Channels
         </label>
-        <input
+        <textarea
           type='text'
           id='channels'
           name='channels'
@@ -119,7 +133,7 @@ const InputForm = ({ onSubmit }) => {
         >
           Customer Segments
         </label>
-        <input
+        <textarea
           type='text'
           id='customerSegments'
           name='customerSegments'
@@ -129,10 +143,55 @@ const InputForm = ({ onSubmit }) => {
         />
       </div>
       <div className='mb-4'>
+        <label
+          className='block text-lg font-bold mb-2'
+          htmlFor='existingAlternatives'
+        >
+          Existing Alternatives
+        </label>
+        <textarea
+          type='text'
+          id='existingAlternatives'
+          name='existingAlternatives'
+          value={canvasData.existingAlternatives}
+          onChange={handleChange}
+          className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'
+        />
+      </div>
+      <div className='mb-4'>
+        <label
+          className='block text-lg font-bold mb-2'
+          htmlFor='highLevelConcepts'
+        >
+          High-Level Concepts
+        </label>
+        <textarea
+          type='text'
+          id='highLevelConcepts'
+          name='highLevelConcepts'
+          value={canvasData.highLevelConcepts}
+          onChange={handleChange}
+          className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'
+        />
+      </div>
+      <div className='mb-4'>
+        <label className='block text-lg font-bold mb-2' htmlFor='earlyAdopters'>
+          Early Adopters
+        </label>
+        <textarea
+          type='text'
+          id='earlyAdopters'
+          name='earlyAdopters'
+          value={canvasData.earlyAdopters}
+          onChange={handleChange}
+          className='w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500'
+        />
+      </div>
+      <div className='mb-4'>
         <label className='block text-lg font-bold mb-2' htmlFor='costStructure'>
           Cost Structure
         </label>
-        <input
+        <textarea
           type='text'
           id='costStructure'
           name='costStructure'
@@ -148,7 +207,7 @@ const InputForm = ({ onSubmit }) => {
         >
           Revenue Streams
         </label>
-        <input
+        <textarea
           type='text'
           id='revenueStreams'
           name='revenueStreams'
