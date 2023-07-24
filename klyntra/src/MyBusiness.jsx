@@ -3,7 +3,7 @@ import React from 'react';
 const MyBusiness = () => {
   return (
     <>
-      <div className='grid grid-cols-5 grid-rows-4 gap-4 mt-10'>
+      <div className='grid grid-cols-5 grid-rows-3 gap-4 mt-10'>
         <div className='row-span-3 border border-gray-300 p-4 bg-red-300'>
           <h2 className='text-2xl font-bold mb-4'>Problem</h2>
           <ul className='list-inside'>
@@ -55,7 +55,9 @@ const MyBusiness = () => {
           </ul>
           <h2 className='text-2xl font-light mb-4'>High-Level Concepts</h2>
           <ul className='list-inside'>
-            <li className='text-lg'>hello</li>
+            <li className='text-lg'>- zk Proofs.</li>
+            <li className='text-lg'>- Dynamic NFTs.</li>
+            <li className='text-lg'>- Build a Protocol for the platform.</li>
           </ul>
         </div>
         <div className='border border-gray-300 p-4 bg-yellow-300'>
