@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import InputForm from './InputForm';
 import LeanCanvas from './LeanCanvas';
+import MyBusiness from './MyBusiness';
 
 const App = () => {
   const [canvasData, setCanvasData] = useState(null);
@@ -14,7 +15,8 @@ const App = () => {
       <h1 className='text-3xl font-bold mb-4'>Lean Canvas App</h1>
       <InputForm onSubmit={handleFormSubmit} />
       {canvasData && <LeanCanvas data={canvasData} />}
-      <h1>my business idea</h1>
+      <h1 className='text-3xl font-bold mb-4 mt-4'>my business idea</h1>
+      <MyBusiness />
     </div>
   );
 };

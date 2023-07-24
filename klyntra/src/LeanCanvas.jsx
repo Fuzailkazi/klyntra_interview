@@ -3,6 +3,7 @@ import React from 'react';
 const LeanCanvas = ({ data }) => {
   return (
     <>
+      <h1 className='text-3xl font-bold mb-4 mt-4'>Canvas for your Business</h1>
       <div className='grid grid-cols-5 grid-rows-4 gap-4 mt-10'>
         <div className='row-span-3 border border-gray-300 p-4 bg-red-300'>
           <h2 className='text-2xl font-bold mb-4'>Problem</h2>
@@ -55,7 +56,7 @@ const LeanCanvas = ({ data }) => {
         </div>
         <div className='border border-gray-300 p-4 col-span-2 bg-purple-500'>
           <h2 className='text-xl font-bold mb-2'>Revenue Streams</h2>
-          <ul className='list-disc list-inside'>
+          <ul className=' list-inside'>
             <li className='text-lg'>{data.revenueStreams}</li>
           </ul>
         </div>
